@@ -26,9 +26,8 @@ public class WeatherAPI {
 		content_type = "application/x-www-form-urlencode";
 //		utility = new Utility();
 	}
-
 	public WeatherV2 fetchWeatherData(String location) {
-		String url = host + "weather?lat=44.34&lon=10.99&appid=bbd8613e5755016aab641d12712f10d9";
+		String url = host + "weather?lat=52.2394&lon=15.9304&appid=bbd8613e5755016aab641d12712f10d9";
 		System.out.println(url);
 		WeatherV2 weather = null;
 		HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).header("content-type", content_type)

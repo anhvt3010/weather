@@ -113,8 +113,8 @@ public class Controller extends WeatherAPI implements Initializable {
 	public void loadInitialData() {
 		inpLocation.setEditable(false);
 		loader.setVisible(true);
-		title.setVisible(false);
-		main.setVisible(false);
+		title.setVisible(true);
+		main.setVisible(true);
 		backImg.setImage(new Image(
 				"https://s.w-x.co/WeatherImages_Web/WeatherImage_Sunny-day_4.jpg?crop=16:9&width=1200&height=900&format=pjpg&auto=webp&quality=100"));
 		titleBg.setImage(new Image(
@@ -132,7 +132,7 @@ public class Controller extends WeatherAPI implements Initializable {
 //					System.out.println(imgUrl);
 //					location.setText(weather.getLocation());
 //					time.setText(weather.getTime());
-					headerTemp.setText(String.valueOf(weather.getMain().getTemp()));
+					headerTemp.setText(String.valueOf(Math.floor(weather.getMain().getTemp() - 273.15)));
 //					headerStat.setText(weather.getStatus());
 //					headerStatDesc.setText(weather.getStatusDesc());
 //					airQualityHeader.setText(weather.getAirQualityTitle());
