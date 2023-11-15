@@ -10,4 +10,6 @@ module com.technokid.WeatherDesktopApp {
 
 	exports com.technokid.WeatherDesktopApp;
 	exports com.technokid.WeatherDesktopApp.API;
+	exports com.technokid.WeatherDesktopApp.dtos to com.fasterxml.jackson.databind;
+
 }

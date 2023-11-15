@@ -16,21 +16,21 @@ import com.technokid.WeatherDesktopApp.Utility.Utility;
 public class WeatherAPI {
 
 	private String host;
-	private Utility utility;
+//	private Utility utility;
 	private String charset;
 	private String content_type;
 
 	public WeatherAPI() {
-		host = "http://localhost:8080/";
+		host = "https://api.openweathermap.org/data/2.5/";
 		charset = "UTF-8";
 		content_type = "application/x-www-form-urlencode";
-		utility = new Utility();
+//		utility = new Utility();
 	}
 
-	public Weather fetchWeatherData(String location) {
-		String url = host + "weather?location=" + utility.encode(location);
+	public WeatherV2 fetchWeatherData(String location) {
+		String url = host + "weather?lat=44.34&lon=10.99&appid=bbd8613e5755016aab641d12712f10d9";
 		System.out.println(url);
-		Weather weather = null;
+		WeatherV2 weather = null;
 		HttpRequest request = HttpRequest.newBuilder().uri(URI.create(url)).header("content-type", content_type)
 				.method("GET", HttpRequest.BodyPublishers.noBody()).build();
 		System.out.println(request.toString());
@@ -45,7 +45,7 @@ public class WeatherAPI {
 				System.out.println(pretty);
 
 				ObjectMapper objectMapper = new ObjectMapper();
-				weather = objectMapper.readValue(jsonElement.toString(), Weather.class);
+				weather = objectMapper.readValue(jsonElement.toString(), WeatherV2.class);
 			}
 		} catch (IOException | InterruptedException e) {
 			e.printStackTrace();

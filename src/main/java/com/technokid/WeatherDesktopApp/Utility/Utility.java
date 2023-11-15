@@ -7,8 +7,7 @@ public class Utility {
 
 	public String encode(String url) {
 		try {
-			String encodeURL = URLEncoder.encode(url, "UTF-8");
-			return encodeURL;
+            return URLEncoder.encode(url, "UTF-8");
 		} catch (UnsupportedEncodingException e) {
 			return "Issue while encoding" + e.getMessage();
 		}
